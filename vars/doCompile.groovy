@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-def doCompile() {
+def call() {
   sh "mvn compile"
   sh "echo You are awesome!"
 }
