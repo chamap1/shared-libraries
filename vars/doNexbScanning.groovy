@@ -1,4 +1,5 @@
 #!/usr/bin/groovy
+import com.dell.cpsd.SCM.Utils
 
 def call() {
     
