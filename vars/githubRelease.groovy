@@ -24,6 +24,6 @@ def call() {
         }
     }
     else {
-        println("Github Release skipped! Branch pattern did not match 'release/*'")
+        println("Github Release skipped! Branch name pattern did not match 'release/*'.")
     }
 }
