@@ -5,7 +5,7 @@ def call() {
     
     def utils = new com.dell.cpsd.SCM.Utils()
     def repoName = utils.getRepoName()
-    pritnln repoName
+    println repoName
     
     if (env.BRANCH_NAME ==~ /master|release\/.*/) {
         dir('/opt'){
