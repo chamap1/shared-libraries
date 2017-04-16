@@ -1,6 +1,10 @@
 #!/usr/bin/groovy
 
 def call() {
+    
+    def utils = new com.dell.cpsd.SCM.Utils()
+    def repoName = utils.getRepoName()
+    
     dir('/opt') {
             checkout([$class: 'GitSCM', 
             branches: [[name: '*/master']], 
