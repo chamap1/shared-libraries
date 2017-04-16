@@ -1,6 +1,10 @@
 #!/usr/bin/groovy
 
+import com.dell.cpsd.SCM.Utils
+
 def call() {
+    def stages = new com.dell.cpsd.SCM.Stages()
+    
     if (env.BRANCH_NAME ==~ /release\/.*/) {
         dir('/opt'){
             sh "rm -f linux-amd64-github-release.tar.bz2"
