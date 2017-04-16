@@ -15,7 +15,7 @@ def call() {
             sh '''
                 github-release release \
                     --user dellemc-symphony \
-                    --repo  ${repoName} \
+                    --repo ${repoName} \
                     --tag v0.0.1-${BRANCH_NAME}-${BUILD_ID} \
                     --name "${repoName} release" \
                     --description "${repoName} release"
