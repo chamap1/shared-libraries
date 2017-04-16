@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 def call() {
-    if (env.BRANCH_NAME ==~ /release\/.*/) {
+    if (env.BRANCH_NAME ==~ /master|release\/.*/) {
         dir('/opt'){
             sh "rm -f linux-amd64-github-release.tar.bz2"
             sh "wget https://github.com/aktau/github-release/releases/download/v0.7.2/linux-amd64-github-release.tar.bz2"
