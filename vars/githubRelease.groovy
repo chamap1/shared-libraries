@@ -23,4 +23,7 @@ def call() {
             '''
         }
     }
+    else {
+        println("Github Release skipped! Branch pattern did not match 'release/*'")
+    }
 }
