@@ -1,11 +1,12 @@
 #!/usr/bin/groovy
-
 import com.dell.cpsd.SCM.Utils
 
 def call() {
-    def stages = new com.dell.cpsd.SCM.Stages()
     
-    if (env.BRANCH_NAME ==~ /release\/.*/) {
+    def utils = new com.dell.cpsd.SCM.Utils()
+    def repoName = utils.getRepoName()
+    
+    if (env.BRANCH_NAME ==~ /master|release\/.*/) {
         dir('/opt'){
             sh "rm -f linux-amd64-github-release.tar.bz2"
             sh "wget https://github.com/aktau/github-release/releases/download/v0.7.2/linux-amd64-github-release.tar.bz2"
@@ -14,16 +15,16 @@ def call() {
             sh '''
                 github-release release \
                     --user dellemc-symphony \
-                    --repo  rcm-evaluation-service-api \
+                    --repo  ${repoName} \
                     --tag v0.0.1-${BRANCH_NAME}-${BUILD_ID} \
-                    --name "rcm-evaluation-service-api release" \
-                    --description "rcm-evaluation-service-api release"
+                    --name "${repoName} release" \
+                    --description "${repoName} release"
                 github-release upload \
                     --user dellemc-symphony \
-                    --repo rcm-evaluation-service-api \
+                    --repo ${repoName} \
                     --tag v0.0.1-${BRANCH_NAME}-${BUILD_ID} \
-                    --name "rcm-evaluation-service-api release" \
-                    --file ${WORKSPACE}/target/travis-ci-tutorial-java-1.0-SNAPSHOT.jar
+                    --name "${repoName} release" \
+                    --file ${WORKSPACE}/target/${repoName}-1.0-SNAPSHOT.jar
             '''
         }
     }
