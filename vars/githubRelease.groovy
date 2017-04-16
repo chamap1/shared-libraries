@@ -19,7 +19,7 @@ def call() {
                     --repo rcm-evaluation-service-api \
                     --tag v0.0.1-${BRANCH_NAME}-${BUILD_ID} \
                     --name "rcm-evaluation-service-api release" \
-                    --file ${WORKSPACE}/target/rcm-evaluation-service-api-1.0-SNAPSHOT.jar
+                    --file ${WORKSPACE}/target/travis-ci-tutorial-java-1.0-SNAPSHOT.jar
             '''
         }
     }
