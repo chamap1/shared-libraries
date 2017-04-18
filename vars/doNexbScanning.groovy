@@ -16,8 +16,8 @@ def call() {
     }	    
     sh "mkdir -p /opt/nexB/nexb-output/"
     sh "sh /opt/nexB/scancode --help"
-    sh "sh /opt/nexB/scancode --format html ${WORKSPACE} /opt/nexB/nexb-output/minimal.html"
-    sh "sh /opt/nexB/scancode --format html-app ${WORKSPACE} /opt/nexB/nexb-output/scancode_result.html"	       
+    sh "sh /opt/nexB/scancode --format html ${WORKSPACE} /opt/nexB/nexb-output/${repoName}.html"
+    sh "sh /opt/nexB/scancode --format html-app ${WORKSPACE} /opt/nexB/nexb-output/${repoName}-grap.html"	       
     sh "mv /opt/nexB/nexb-output/ ${WORKSPACE}/"
     archiveArtifacts '**/nexb-output/**'    
 }
