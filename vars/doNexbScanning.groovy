@@ -4,7 +4,7 @@ import com.dell.cpsd.SCM.Utils
 def call() {    
     
     def utils = new com.dell.cpsd.SCM.Utils()
-    def repoName = utils.getRepoName2()    
+    def repoName = utils.getRepoName()    
     
     dir('/opt') {
             checkout([$class: 'GitSCM', 
