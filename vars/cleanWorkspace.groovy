@@ -1,2 +1,5 @@
+#!/usr/bin/groovy
 
-step([$class: 'WsCleanup']) 
+def call() {  
+    step([$class: 'WsCleanup']) 
+}
