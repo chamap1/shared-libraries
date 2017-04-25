@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-public class Contact implements Serializable {
+public class serverMetaData implements Serializable {
     private string DOCKER_REGISTRY = "docker-dev-local.art.local"
     
     def getDockerRegistryName() {
