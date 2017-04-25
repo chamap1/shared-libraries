@@ -1,4 +1,3 @@
-#!/usr/bin/groovy
 
 class serverMetaData implements Serializable {
     private string DOCKER_REGISTRY = "docker-dev-local.art.local"
