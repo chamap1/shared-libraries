@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 import com.dell.cpsd.SCM.Utils
 
-def call(String tag_name = '', String name = '', String body = '') {
+def call(String tag_name = '') {
 
     def utils = new com.dell.cpsd.SCM.Utils()
 //    def repoName = utils.getRepoName()
