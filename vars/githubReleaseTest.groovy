@@ -9,9 +9,9 @@ def call(String tag_name = '') {
     def repoName = "travis-ci-tutorial-java"
     def orgName = "chamap1"
     println(tag_name)
-    if (tag_name == ''){
-        tag_name = "v1.0.0.${BUILD_ID}"
-    }
+//    if (tag_name == ''){
+//        tag_name = "v1.0.0.${BUILD_ID}"
+//    }
     def name = ''
     def body = ''
     if (name == ''){
