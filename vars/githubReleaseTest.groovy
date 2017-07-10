@@ -1,25 +1,24 @@
 #!/usr/bin/groovy
 import com.dell.cpsd.SCM.Utils
 
-def call(String tag_name) {
+def call() {
 
     def utils = new com.dell.cpsd.SCM.Utils()
 //    def repoName = utils.getRepoName()
 //    def orgName = utils.getOrgName()
     def repoName = "travis-ci-tutorial-java"
     def orgName = "chamap1"
-    println(tag_name)
-//    if (tag_name == ''){
-//        tag_name = "v1.0.0.${BUILD_ID}"
-//    }
-    def name = ''
-    def body = ''
-    if (name == ''){
-        name = "${repoName} Release"
+    
+    if (RELEASE_TAG_NAME == ''){
+        RELEASE_TAG_NAME = "v1.0.0.${BUILD_ID}"
+    }
+
+    if (RELEASE_NAME == ''){
+        RELEASE_NAME = "${repoName} Release"
     }
     
-    if (body == ''){
-        body = "${repoName} Release"
+    if (RELEASE_BODY == ''){
+        RELEASE_BODY = "${repoName} Release"
     }
        
     if (env.BRANCH_NAME ==~ /release\/.*/) {
@@ -27,10 +26,10 @@ def call(String tag_name) {
         sh """
             curl -i -H 'Authorization: token ${GITHUB_TOKEN}' \
             -d '{ \
-            "tag_name": "${tag_name}", \
+            "tag_name": "${RELEASE_TAG_NAME}", \
             "target_commitish": "master", \
-            "name": "${name}", \
-            "body": "${body}", \
+            "name": "${RELEASE_NAME}", \
+            "body": "${RELEASE_BODY}", \
             "draft": false, \
             "prerelease": false \
             }' \
