@@ -8,18 +8,6 @@ def call() {
 //    def orgName = utils.getOrgName()
     def repoName = "travis-ci-tutorial-java"
     def orgName = "chamap1"
-    
-    if (${RELEASE_TAG_NAME} == ''){
-        RELEASE_TAG_NAME = "v1.0.0.${BUILD_ID}"
-    }
-
-    if (${RELEASE_NAME} == ''){
-        RELEASE_NAME = "${repoName} Release"
-    }
-    
-    if (${RELEASE_BODY} == ''){
-        RELEASE_BODY = "${repoName} Release"
-    }
        
     if (env.BRANCH_NAME ==~ /release\/.*/) {
         sh "echo https://api.github.com/repos/${orgName}/${repoName}/releases"
