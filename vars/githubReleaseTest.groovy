@@ -8,7 +8,9 @@ def call(String tag_name = '', String name = '', String body = '') {
 //    def orgName = utils.getOrgName()
     def repoName = "travis-ci-tutorial-java"
     def orgName = "chamap1"
-    
+    println(tag_name)
+    println(name)
+    println(body)
     if (tag_name == ''){
         tag_name = "v1.0.0.${BUILD_ID}"
     }
