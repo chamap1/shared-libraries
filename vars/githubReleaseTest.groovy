@@ -14,10 +14,10 @@ def call() {
         sh """
             curl -i -H 'Authorization: token ${GITHUB_TOKEN}' \
             -d '{ \
-            "tag_name": "${RELEASE_TAG_NAME}", \
+            "tag_name": "${env.RELEASE_TAG_NAME}", \
             "target_commitish": "master", \
-            "name": "${RELEASE_NAME}", \
-            "body": "${RELEASE_BODY}", \
+            "name": "${env.RELEASE_NAME}", \
+            "body": "${env.RELEASE_BODY}", \
             "draft": false, \
             "prerelease": false \
             }' \
