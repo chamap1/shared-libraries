@@ -1,13 +1,15 @@
 #!/usr/bin/groovy
 import com.dell.cpsd.SCM.Utils
 
+def repoName = "travis-ci-tutorial-java"
+def orgName = "chamap1"
+
 def call() {
 
     def utils = new com.dell.cpsd.SCM.Utils()
 //    def repoName = utils.getRepoName()
 //    def orgName = utils.getOrgName()
-    def repoName = "travis-ci-tutorial-java"
-    def orgName = "chamap1"
+
     
     
     if (env.BRANCH_NAME ==~ /release\/.*/) {
